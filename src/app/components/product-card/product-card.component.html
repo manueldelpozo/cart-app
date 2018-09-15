@@ -1,3 +1,8 @@
-<p>
-  product-card works!
-</p>
+<mat-card [class.mat-elevation-z2]="!isActive" [class.mat-elevation-z8]="isActive" (mouseover)="isActive = true" (mouseout)="isActive = false" (click)="moveToCart()">
+  <img src="{{ product.img_thumbnail_base64 }}" alt="Photo of {{ product.name }}">
+  <mat-card-header>
+    <div mat-card-avatar></div>
+    <mat-card-title>{{ product.name }}</mat-card-title>
+    <mat-card-subtitle><strong>{{ product.price.amount }}</strong>{{ product.price.currency }}</mat-card-subtitle>
+  </mat-card-header>
+</mat-card>

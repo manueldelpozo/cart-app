@@ -5,4 +5,8 @@ export class ProductDataService {
 
   constructor() { }
 
+  getAll() {
+    return require('../../stubs/products.json');
+  }
+
 }
