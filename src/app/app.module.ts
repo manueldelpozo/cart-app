@@ -7,6 +7,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { CartListComponent } from './components/cart-list/cart-list.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { SortListDirective } from './directives/sort-list.directive';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { CartItemComponent } from './components/cart-item/cart-item.component';
     ProductListComponent,
     ProductCardComponent,
     CartListComponent,
-    CartItemComponent
+    CartItemComponent,
+    SortListDirective
   ],
   imports: [
     BrowserModule
