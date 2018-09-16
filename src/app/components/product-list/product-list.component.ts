@@ -9,9 +9,9 @@ import { Product } from '../../models/product';
 })
 export class ProductListComponent implements OnInit {
   products: Product[];
-  productInput: Product;
+  privateproductInput: Product;
 
-  constructor(private productDataService: ProductDataService) { }
+  constructor(private productDataService: ProductDataService, ) { }
 
   ngOnInit() {
     this.products = this.productDataService.getAll();

@@ -1,6 +1,17 @@
-<h2>Products</h2>
-<div class="row">
-  <div *ngFor="let product of products" class="col-md-4 col-sm-6"> 
-      <app-product-card [productInput]="[ product ]"></app-product-card>
+<header class="row">
+  <h2 class="col-md-8">Products</h2>
+  <div id="orderSelectorContainer" class="col-md-4">
+    <mat-form-field>
+      <mat-select [(value)]="selectedOrder" placeholder="Sort by...">
+        <mat-option value="name">Name</mat-option>
+        <mat-option value="price.amount">Price</mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
-</div>
+</header>
+
+<section class="row">
+  <div *ngFor="let product of products | orderBy:selectedOrder" class="col-md-4 col-sm-6">
+    <app-product-card [productInput]="[ product ]"></app-product-card>
+  </div>
+</section>

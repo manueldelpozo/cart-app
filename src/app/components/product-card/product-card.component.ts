@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ProductDataService } from '../../services/product-data.service';
 import { Product } from '../../models/product';
 
 @Component({
@@ -8,18 +9,17 @@ import { Product } from '../../models/product';
 })
 export class ProductCardComponent implements OnInit {
   @Input() productInput: Product[];
-  product: Product;
-  isActive = false;
+  public product: Product;
+  public isActive = false;
 
-  constructor() { }
+  constructor(private productDataService: ProductDataService) { }
 
   ngOnInit() {
     this.product = this.productInput[0];
-    console.log(this.product);
   }
 
   private moveToCart() {
-    // some code
+    // this.productDataService.currentCart.subscribe(product => this.product = product );
   }
 
 }
