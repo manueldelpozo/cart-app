@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ProductDataService } from '../../services/product-data.service';
+import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { Product } from '../../models/product';
 
 @Component({
@@ -12,14 +13,14 @@ export class ProductCardComponent implements OnInit {
   public product: Product;
   public isActive = false;
 
-  constructor(private productDataService: ProductDataService) { }
+  constructor(private shoppingCartService: ShoppingCartService) { }
 
   ngOnInit() {
     this.product = this.productInput[0];
   }
 
-  private moveToCart() {
-    // this.productDataService.currentCart.subscribe(product => this.product = product );
+  public addProductToCart(): void {
+    this.shoppingCartService.addItem(this.product, 1);
   }
 
 }

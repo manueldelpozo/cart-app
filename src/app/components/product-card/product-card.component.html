@@ -1,4 +1,5 @@
-<mat-card [class.mat-elevation-z2]="!isActive" [class.mat-elevation-z8]="isActive" (mouseover)="isActive = true" (mouseout)="isActive = false" (click)="moveToCart()">
+<mat-card [class.mat-elevation-z2]="!isActive" [class.mat-elevation-z8]="isActive" (mouseover)="isActive = true" (mouseout)="isActive = false" 
+          (click)="addProductToCart()">
   <img src="{{ product.img_thumbnail_base64 }}" alt="Photo of {{ product.name }}">
   <mat-card-header>
     <div mat-card-avatar></div>

@@ -1,1 +1,33 @@
+<mat-expansion-panel id="panel" (opened)="!isOpen">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <h3>
+        <i class="material-icons">shopping_basket</i>
+        Your Shopping Basket
+      </h3>
+    </mat-panel-title>
+    <mat-panel-description>
+      <h5>
+        Total ({{itemCount}} items):
+        <span class="text--red text--bold js-cart-total">{{(cart | async).itemsTotal | currency:cart.currency:true}}</span>
+      </h5>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
 
+  <div id="cartContent" *ngIf="cartUpdated.items.length > 0; else showMessage">
+    <div *ngFor="let item of cartUpdated.items">
+      <app-cart-item [cartItemInput]="[ item ]"></app-cart-item>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <button type="button" class="secondary button small expanded js-btn-empty-cart" (click)="emptyCart()" [attr.disabled]="itemCount === 0 ? true : null">
+          Empty shopping basket
+        </button>
+      </div>
+    </div>
+  </div>
+  <ng-template #showMessage>
+    <div id="emptyAlert">Your cart is empty</div>
+  </ng-template>
+</mat-expansion-panel>

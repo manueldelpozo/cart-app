@@ -1,20 +1,32 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Product } from '../models/product';
+import { Http } from '@angular/http';
+import { Product } from './../models/product';
+import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Observable';
+import { CachingService } from './caching.service';
 
 @Injectable()
 export class ProductDataService {
-  private cartSource = new BehaviorSubject('default');
-  currentCart = this.cartSource.asObservable();
+  private products: Observable<Product[]>;
 
-  constructor() { }
+  constructor(private http: Http, private cachingService: CachingService) {}
 
-  getAll(): Product[] {
+  /* public all(): Observable<Product[]> {
+    return this.cachingService.cache<Product[]>(() =>
+      this.products,
+      (val: Observable<Product[]>) => this.products = val,
+      () => this.http
+        .get('./assets/products.json')
+        .map((response) => response.json().map((item) => {
+          const model = new Product();
+          model.updateFrom(item);
+          return model;
+      }))
+    );
+  } */
+
+  all(): Observable<Product[]> {
     return require('../../stubs/products.json');
-  }
-
-  changeProduct(product: Product) {
-    // this.cartSource.next(product);
   }
 
 }
