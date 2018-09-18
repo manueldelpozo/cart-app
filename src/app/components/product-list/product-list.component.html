@@ -10,7 +10,7 @@
 </header>
 
 <section class="row">
-  <div *ngFor="let product of products | orderBy:selectedOrder" class="col-md-3 col-sm-4">
+  <div *ngFor="let product of products | orderBy:selectedOrder" class="col-md-2 col-sm-3">
     <app-product-card [productInput]="[ product ]"></app-product-card>
   </div>
 </section>
