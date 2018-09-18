@@ -2,8 +2,16 @@
     background-color: #e3e5e8 !important; 
     
     mat-expansion-panel-header {
-        mat-panel-title h2 {
-            margin: 0;
+        mat-panel-title {
+            align-items: center;
+
+            mat-icon {
+                font-size: 1.8em;
+                margin-right: .4em;
+            }
+            h2 {
+                margin: 0;
+            }
         }
         
         .header-info-container {
@@ -13,7 +21,7 @@
             padding: 0 2em;
         
             & > * {
-                padding: 0 1em; 
+                margin: 0 .3em; 
             }
         }
     }

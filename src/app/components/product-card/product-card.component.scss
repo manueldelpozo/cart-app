@@ -16,20 +16,27 @@
         .text-box {
             position: absolute;
             z-index: 2;
-            background-color: #000;
-            color: #fff;
+            background-color: #222;
+            color: #ddd;
+            right: 0;
+            left: 0;
+            padding: .3em;
 
             &.details {
                 top: 0;
                 font-size: .8em;
-                padding: .3em;
             }
 
             &.add-to-cart {
                 bottom: 0;
-                right: 0;
-                left: 0;
-                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                mat-icon {
+                    margin-right: .3em;
+                    font-size: 1.3em;
+                }
             }
         }
     }
@@ -38,8 +45,8 @@
         cursor: pointer;
 
         mat-card .text-box {
-            background-color: #fff;
-            color: #000;
+            background-color: #ddd;
+            color: #222;
         }
     }
 }

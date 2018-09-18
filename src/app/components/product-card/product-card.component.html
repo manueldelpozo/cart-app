@@ -1,15 +1,15 @@
 <mat-card [class.mat-elevation-z3]="!isActive" [class.mat-elevation-z9]="isActive" (mouseover)="isActive = true" (mouseout)="isActive = false"
   (click)="addProductToCart()">
-  <mat-card-header>
-    <mat-card-title>ADD TO CART</mat-card-title>
-  </mat-card-header>
-  <div class="add-to-cart text-box">
-    ADD TO CART
-  </div>
-  <img src="{{ product.img_thumbnail_base64 }}" alt="Photo of {{ product.name }}">
   <div class="details text-box">
     {{ product.name }}
     <br>
+    
+  </div>
+
+  <img src="{{ product.img_thumbnail_base64 }}" alt="Photo of {{ product.name }}">
+
+  <div class="add-to-cart text-box">
+    <mat-icon>shopping_basket</mat-icon>
     <strong>{{ product.price.amount | currency:product.price.currency:true }}</strong>
   </div>
 </mat-card>
