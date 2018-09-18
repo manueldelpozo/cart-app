@@ -9,18 +9,15 @@ import { Cart } from '../../models/cart';
   templateUrl: './cart-list.component.html',
   styleUrls: ['./cart-list.component.scss']
 })
+
 export class CartListComponent implements OnInit, OnDestroy {
-  public isOpen = false;
+  public isExpanded = false;
   public cart: Observable<Cart>;
   public cartUpdated: Cart;
   public itemCount: number;
-
   private cartSubscription: Subscription;
 
-  public constructor(private shoppingCartService: ShoppingCartService) {
-    /* console.log(this.cart);
-    this.isOpen = true; */
-  }
+  public constructor(private shoppingCartService: ShoppingCartService) {}
 
   public emptyCart(): void {
     this.shoppingCartService.empty();
@@ -31,6 +28,9 @@ export class CartListComponent implements OnInit, OnDestroy {
     this.cartSubscription = this.cart.subscribe(cart => {
       this.cartUpdated = cart;
       this.itemCount = cart.items.map(x => x.quantity).reduce((p, n) => p + n, 0);
+      setTimeout(() => {
+        this.isExpanded = this.itemCount > 0;
+      }, 200);
     });
   }
 
@@ -39,9 +39,4 @@ export class CartListComponent implements OnInit, OnDestroy {
       this.cartSubscription.unsubscribe();
     }
   }
-
-  openPanel() {
-    //
-  }
-
 }

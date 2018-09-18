@@ -1,16 +1,13 @@
-<mat-expansion-panel id="panel" (opened)="!isOpen">
+<mat-expansion-panel id="panel" [expanded]="isExpanded" (opened)="!isExpanded">
   <mat-expansion-panel-header>
     <mat-panel-title>
       <h3>
-        <i class="material-icons">shopping_basket</i>
-        Your Shopping Basket
+        <mat-icon>shopping_basket</mat-icon> 
       </h3>
     </mat-panel-title>
     <mat-panel-description>
-      <h5>
-        Total ({{itemCount}} items):
-        <span class="text--red text--bold js-cart-total">{{(cart | async).itemsTotal | currency:cart.currency:true}}</span>
-      </h5>
+        Cart ({{itemCount}} items):
+      <span class="text--red text--bold js-cart-total hidden-xs">{{(cart | async).itemsTotal | currency:'EUR':true}}</span>
     </mat-panel-description>
   </mat-expansion-panel-header>
 

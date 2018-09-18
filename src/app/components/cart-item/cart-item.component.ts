@@ -7,6 +7,7 @@ import { CartItem } from '../../models/cart-item';
   templateUrl: './cart-item.component.html',
   styleUrls: ['./cart-item.component.scss']
 })
+
 export class CartItemComponent implements OnInit {
   @Input() cartItemInput: CartItem[];
   public cartItem: CartItem;
@@ -28,6 +29,4 @@ export class CartItemComponent implements OnInit {
   public deleteItem() {
     this.shoppingCartService.deleteItem(this.cartItem.product);
   }
-
-
 }
