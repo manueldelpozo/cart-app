@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -14,7 +14,6 @@ import { CartItemComponent } from './components/cart-item/cart-item.component';
 
 import { ProductDataService } from './services/product-data.service';
 import { LocalStorageService, StorageService } from './services/storage.service';
-import { CachingService } from './services/caching.service';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { OrderByPipe } from './pipes/order-by.pipe';
 
@@ -29,14 +28,13 @@ import { OrderByPipe } from './pipes/order-by.pipe';
   ],
   imports: [
     BrowserModule,
-    HttpModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatCardModule, MatIconModule, MatProgressSpinnerModule, MatSelectModule, MatExpansionModule, MatButtonModule
   ],
   providers: [
     ProductDataService,
     ShoppingCartService,
-    CachingService,
     { provide: StorageService, useClass: LocalStorageService },
     {
       deps: [StorageService, ProductDataService],
