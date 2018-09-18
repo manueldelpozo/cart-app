@@ -5,7 +5,6 @@ import { Observer } from 'rxjs/Observer';
 import { CartItem } from '../models/cart-item';
 import { Product } from '../models/product';
 import { Cart } from '../models/cart';
-import { ProductDataService } from './product-data.service';
 
 const CART_KEY = 'cart';
 
@@ -15,9 +14,8 @@ export class ShoppingCartService {
   private subscriptionObservable: Observable<Cart>;
   private subscribers: Array<Observer<Cart>> = new Array<Observer<Cart>>();
 
-  public constructor(private storageService: StorageService, private productDataService: ProductDataService) {
+  public constructor(private storageService: StorageService) {
     this.storage = this.storageService.get();
-    this.productDataService.all();
 
     this.subscriptionObservable = new Observable<Cart>((observer: Observer<Cart>) => {
       this.subscribers.push(observer);
@@ -48,7 +46,17 @@ export class ShoppingCartService {
     this.updateCart(cart);
   }
 
-  public findCartItem(product: Product, cart: Cart): CartItem {
+  private retrieve(): Cart {
+    const cart = new Cart;
+    const storedCart = this.storage.getItem(CART_KEY);
+    if (storedCart) {
+      cart.updateFrom(JSON.parse(storedCart));
+    }
+
+    return cart;
+  }
+
+  private findCartItem(product: Product, cart: Cart): CartItem {
     let item = cart.items.find((cartItem) => cartItem.product.id === product.id);
     if (item === undefined) {
       item = new CartItem();
@@ -75,16 +83,6 @@ export class ShoppingCartService {
     cart.itemsTotal = cart.items.reduce((res, item) => res + item.quantity * item.product.price.amount, 0);
   }
 
-  private retrieve(): Cart {
-    const cart = new Cart;
-    const storedCart = this.storage.getItem(CART_KEY);
-    if (storedCart) {
-      cart.updateFrom(JSON.parse(storedCart));
-    }
-
-    return cart;
-  }
-
   private save(cart: Cart): void {
     this.storage.setItem(CART_KEY, JSON.stringify(cart));
   }
@@ -94,7 +92,7 @@ export class ShoppingCartService {
       try {
         sub.next(cart);
       } catch (e) {
-        // we want all subscribers to get the update even if one errors.
+        console.error(e);
       }
     });
   }

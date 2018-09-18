@@ -12,12 +12,12 @@
 
     <div class="quantity col-2">
       <button class="btn quantity-button quantity-up" (click)="increaseQuantity()">+</button>
-      <input type="number" placeholder="Quantity" value="{{ cartItem.quantity }}">       
+      <input type="number" placeholder="Quantity" value="{{ cartItem.quantity }}">
       <button class="btn quantity-button quantity-down" (click)="decreaseQuantity()">-</button>
     </div>
 
     <div class="price-container col-2">
-      <strong>{{ cartItem.product.price.amount }}</strong> {{ cartItem.product.price.currency }}
+      <strong>{{ cartItem.product.price.amount | currency:cartItem.product.price.currency:true }}</strong>
     </div>
 
     <div class="delete-container col-2 d-flex justify-content-end">

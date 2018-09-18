@@ -10,6 +10,6 @@
   <div class="details text-box">
     {{ product.name }}
     <br>
-    <strong>{{ product.price.amount }}</strong> {{ product.price.currency }}
+    <strong>{{ product.price.amount | currency:product.price.currency:true }}</strong>
   </div>
 </mat-card>

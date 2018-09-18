@@ -5,7 +5,7 @@
     </mat-panel-title>
     <div class="header-info-container">
       <button mat-mini-fab color="primary">{{itemCount}}</button> items:
-      <strong class="total-price">{{(cart | async).itemsTotal | currency:'EUR':true}}</strong>
+      <strong class="total-price">{{(cart | async).itemsTotal | currency:(cart | async).currency:true}}</strong>
     </div>
   </mat-expansion-panel-header>
 
