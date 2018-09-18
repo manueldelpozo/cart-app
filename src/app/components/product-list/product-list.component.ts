@@ -8,14 +8,14 @@ import { Product } from '../../models/product';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
+
 export class ProductListComponent implements OnInit {
   products: Observable<Product[]>;
   privateproductInput: Product;
 
-  constructor(private productDataService: ProductDataService, ) { }
+  constructor(private productDataService: ProductDataService) { }
 
   ngOnInit() {
     this.products = this.productDataService.all();
   }
-
 }

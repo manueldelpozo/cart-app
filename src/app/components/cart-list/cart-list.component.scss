@@ -1,0 +1,36 @@
+#panel {
+    background-color: #e3e5e8 !important; 
+    
+    mat-expansion-panel-header {
+        mat-panel-title h2 {
+            margin: 0;
+        }
+        
+        .header-info-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 2em;
+        
+            & > * {
+                padding: 0 1em; 
+            }
+        }
+    }
+
+    button:focus {
+        outline: none;
+    }
+
+    #cartContent > .list {
+        max-height: 22em;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+
+    #emptyAlert {
+        text-align: center;
+        font-size: 1.5em;
+    }
+}
+

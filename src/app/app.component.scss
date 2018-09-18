@@ -1,1 +1,8 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+app-cart-list {
+    display: block;
+    position: sticky;
+    top: 0px;
+    z-index: 3;
+}

@@ -1,70 +1,49 @@
-.quantity {
-    position: relative;
+mat-card {
+    padding: 1em;
+    border: 1px solid #ddd;
 
-    input {
-        width: 45px;
-        height: 42px;
-        line-height: 1.65;
-        float: left;
-        display: block;
-        padding: 0;
-        margin: 0;
-        padding-left: 20px;
-        border: 1px solid #eee;
-    
-        &[type=number] {
-            -moz-appearance: textfield; 
-
-            &::-webkit-inner-spin-button, &::-webkit-outer-spin-button {
-                -webkit-appearance: none;
-                margin: 0;
-            }
-        }  
-
-        &:focus {
-            outline: 0;
-        }
+    .flex-container {
+        align-items: center;
     }
 
-    .quantity-nav {
-        float: left;
-        position: relative;
-        height: 42px;
-
-        .quantity-button {
-            position: relative;
-            cursor: pointer;
-            border-left: 1px solid #eee;
-            width: 20px;
+    .name-container {
+        font-size: 1.5em;
+        padding-top: .2em;
+    }
+    
+    .quantity {
+        display: flex;
+        flex-direction: column;
+        min-width: 6em;
+    
+        input {
+            height: 4em;
+            border: 1px solid #eee;
             text-align: center;
-            color: #333;
-            font-size: 13px;
-            font-family: "Trebuchet MS", Helvetica, sans-serif !important;
-            line-height: 1.7;
-            -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            -o-user-select: none;
-            user-select: none;
         
-            &.quantity-up {
-                position: absolute;
-                height: 50%;
-                top: 0;
-                border-bottom: 1px solid #eee;
-            }
-
-            &.quantity-down {
-                position: absolute;
-                bottom: -1px;
-                height: 50%;
+            &[type=number] {
+                -moz-appearance: textfield; 
+    
+                &::-webkit-inner-spin-button, &::-webkit-outer-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+            }  
+    
+            &:focus {
+                outline: 0;
             }
         }
+    
+        .quantity-button {
+            cursor: pointer;
+            user-select: none;
+            height: 2em;
+            line-height: 1;
+        }
+    }
+    
+    .price-container {
+        text-align: center;
     }
 }
-
-
-
-

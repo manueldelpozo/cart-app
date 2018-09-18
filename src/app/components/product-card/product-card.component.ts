@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ProductDataService } from '../../services/product-data.service';
 import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { Product } from '../../models/product';
 
@@ -8,6 +7,7 @@ import { Product } from '../../models/product';
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss']
 })
+
 export class ProductCardComponent implements OnInit {
   @Input() productInput: Product[];
   public product: Product;
@@ -22,5 +22,4 @@ export class ProductCardComponent implements OnInit {
   public addProductToCart(): void {
     this.shoppingCartService.addItem(this.product, 1);
   }
-
 }

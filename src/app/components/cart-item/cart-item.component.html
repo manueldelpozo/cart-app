@@ -1,23 +1,29 @@
 <mat-card>
-  <img src="{{ cartItem.product.img_thumbnail_base64 }}" alt="Photo of {{ cartItem.product.name }}">
-  <mat-card-header>
-    <div mat-card-avatar></div>
-    <mat-card-title>{{ cartItem.product.name }}</mat-card-title>
-    <mat-card-subtitle>
-      <strong>{{ cartItem.product.price.amount }}</strong>{{ cartItem.product.price.currency }}
-    </mat-card-subtitle>
-  </mat-card-header>
+  <div class="row flex-container">
+    <div class="col-6 row flex-container">
+      <div class="image-container col-md-4">
+        <img src="{{ cartItem.product.img_thumbnail_base64 }}" alt="Photo of {{ cartItem.product.name }}">
+      </div>
 
-  <div class="quantity">
-    <input type="number" placeholder="Quantity" value="{{ cartItem.quantity }}">
-    <div class="quantity-nav">
-      <button class="quantity-button quantity-up" (click)="increaseQuantity()">+</button>
-      <button class="quantity-button quantity-down" (click)="decreaseQuantity()">-</button>
+      <div class="name-container col-md-8">
+        {{ cartItem.product.name }}
+      </div>
+    </div>
+
+    <div class="quantity col-2">
+      <button class="btn quantity-button quantity-up" (click)="increaseQuantity()">+</button>
+      <input type="number" placeholder="Quantity" value="{{ cartItem.quantity }}">       
+      <button class="btn quantity-button quantity-down" (click)="decreaseQuantity()">-</button>
+    </div>
+
+    <div class="price-container col-2">
+      <strong>{{ cartItem.product.price.amount }}</strong> {{ cartItem.product.price.currency }}
+    </div>
+
+    <div class="delete-container col-2 d-flex justify-content-end">
+      <button mat-mini-fab color="warn" (click)="deleteItem()">
+        <mat-icon>close</mat-icon>
+      </button>
     </div>
   </div>
-
-  <button mat-button mat-icon-button aria-label="Remove" (click)="deleteItem()">
-    <mat-icon>close</mat-icon>
-  </button>
-
 </mat-card>

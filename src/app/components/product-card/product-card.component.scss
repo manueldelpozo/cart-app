@@ -1,0 +1,46 @@
+:host {
+    mat-card {
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        height: 9em;
+        margin: .8em;
+        padding: 0;
+
+        img {
+            position: absolute;
+            width: 100%;
+            height: auto;
+        }
+
+        .text-box {
+            position: absolute;
+            z-index: 2;
+            background-color: #000;
+            color: #fff;
+
+            &.details {
+                top: 0;
+                font-size: .8em;
+                padding: .3em;
+            }
+
+            &.add-to-cart {
+                bottom: 0;
+                right: 0;
+                left: 0;
+                text-align: center;
+            }
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        mat-card .text-box {
+            background-color: #fff;
+            color: #000;
+        }
+    }
+}
+

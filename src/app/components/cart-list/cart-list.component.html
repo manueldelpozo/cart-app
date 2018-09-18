@@ -1,27 +1,21 @@
 <mat-expansion-panel id="panel" [expanded]="isExpanded" (opened)="!isExpanded">
   <mat-expansion-panel-header>
     <mat-panel-title>
-      <h3>
-        <mat-icon>shopping_basket</mat-icon> 
-      </h3>
+      <h2>Cart</h2>
     </mat-panel-title>
-    <mat-panel-description>
-        Cart ({{itemCount}} items):
-      <span class="text--red text--bold js-cart-total hidden-xs">{{(cart | async).itemsTotal | currency:'EUR':true}}</span>
-    </mat-panel-description>
+    <div class="header-info-container">
+      <button mat-mini-fab color="primary">{{itemCount}}</button> items:
+      <strong class="total-price">{{(cart | async).itemsTotal | currency:'EUR':true}}</strong>
+    </div>
   </mat-expansion-panel-header>
 
   <div id="cartContent" *ngIf="cartUpdated.items.length > 0; else showMessage">
-    <div *ngFor="let item of cartUpdated.items">
-      <app-cart-item [cartItemInput]="[ item ]"></app-cart-item>
+    <div class='list'>
+      <app-cart-item [cartItemInput]="[ item ]" *ngFor="let item of cartUpdated.items"></app-cart-item>
     </div>
-
-    <div class="row">
-      <div class="col-sm-12">
-        <button type="button" class="secondary button small expanded js-btn-empty-cart" (click)="emptyCart()" [attr.disabled]="itemCount === 0 ? true : null">
-          Empty shopping basket
-        </button>
-      </div>
+    <hr>
+    <div class="d-flex justify-content-end">
+      <button mat-button color="primary" (click)="emptyCart()">Empty Cart</button>
     </div>
   </div>
   <ng-template #showMessage>

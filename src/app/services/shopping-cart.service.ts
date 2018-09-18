@@ -15,10 +15,7 @@ export class ShoppingCartService {
   private subscriptionObservable: Observable<Cart>;
   private subscribers: Array<Observer<Cart>> = new Array<Observer<Cart>>();
 
-  public constructor(
-    private storageService: StorageService,
-    private productDataService: ProductDataService
-  ) {
+  public constructor(private storageService: StorageService, private productDataService: ProductDataService) {
     this.storage = this.storageService.get();
     this.productDataService.all();
 
