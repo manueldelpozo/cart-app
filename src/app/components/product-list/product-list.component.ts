@@ -12,6 +12,7 @@ import { Product } from '../../models/product';
 export class ProductListComponent implements OnInit {
   products: Observable<Product[]>;
   privateproductInput: Product;
+  selectedOrder: string;
 
   constructor(private productDataService: ProductDataService) { }
 
