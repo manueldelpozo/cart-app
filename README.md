@@ -1,6 +1,20 @@
 # CartApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
+Simple e-commerce platform in Angular 5 which includes list of products and a cart.
+
+Page divides into two sections - cart and products. If there is no products added to cart, cart section is hidden.
+
+This shop consist of 8 products. Each product have picture and name. Above the list of products is placed the sorting list (by price and by name). Products rearrange, depending on chosen sorting option.
+
+Clicking “Add to cart” makes the cart roll out with the list of added products. Each product in the cart can be removed and its quantity can be changed by adding or reducing items. The amount of all added products is displayed in the cart. The products stay there after refreshing the page.
+
+You can visualized the app here `https://manueldelpozo.github.io/cart-app/dist/`
+
+or 
+
+Install locally
+
+Run `yarn`
 
 ## Development server
 
