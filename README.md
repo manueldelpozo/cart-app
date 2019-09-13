@@ -8,7 +8,9 @@ This shop consist of 8 products. Each product have picture and name. Above the l
 
 Clicking “Add to cart” makes the cart roll out with the list of added products. Each product in the cart can be removed and its quantity can be changed by adding or reducing items. The amount of all added products is displayed in the cart. The products stay there after refreshing the page.
 
-You can visualized the app here `https://manueldelpozo.github.io/cart-app/dist/`
+Technologies used: Angular 5, @angular/router, @angular/material, @angular/forms, @angular/http, Typescript, Rxjs, ZoneJs, Webpack, Sass, Bootstrap. 
+
+You can visualized the app [here](https://manueldelpozo.github.io/cart-app/dist/)
 
 or 
 
