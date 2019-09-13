@@ -4,11 +4,16 @@ Simple e-commerce platform in Angular 5 which includes list of products and a ca
 
 Page divides into two sections - cart and products. If there is no products added to cart, cart section is hidden.
 
-This shop consist of 8 products. Each product have picture and name. Above the list of products is placed the sorting list (by price and by name). Products rearrange, depending on chosen sorting option.
+This shop consist of 8 products mocked in a json file. Each product have picture and name. Above the list of products is placed the sorting list (by price and by name). Products rearrange, depending on chosen sorting option.
 
 Clicking “Add to cart” makes the cart roll out with the list of added products. Each product in the cart can be removed and its quantity can be changed by adding or reducing items. The amount of all added products is displayed in the cart. The products stay there after refreshing the page.
 
-Technologies used: Angular 5, @angular/router, @angular/material, @angular/forms, @angular/http, Typescript, Rxjs, ZoneJs, Webpack, Sass, Bootstrap. 
+Services: 
+- Product Data Service: Request mocked API for all products.
+- Shopping Cart Service: Subscribe the Cart Observables for added and removed items using RxJS.
+- Storage Service: LocalStorage used in the Shopping Cart.
+
+Technologies used: `Angular 5, @angular/router, @angular/material, @angular/forms, @angular/http, Typescript, Rxjs, ZoneJs, Webpack, Sass, Bootstrap.` 
 
 You can visualized the app [here](https://manueldelpozo.github.io/cart-app/dist/)
 
